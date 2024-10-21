@@ -45,19 +45,42 @@ To set up and run this project, follow these steps:
    poetry shell
    ```
 
-5. **Run the code**:
-   You can now run the sparse autoencoder code. For example:
+5. **Train the model**:
+   To train the sparse autoencoder, run the following command:
    ```
-   python src/sparse_autoencoder/model.py
+   python examples/train.py
+   ```
+   This script will:
+   - Load the Fashion MNIST dataset
+   - Create and initialize the sparse autoencoder model
+   - Train the model for the specified number of epochs
+   - Print the loss for each epoch
+
+   You can modify the hyperparameters in `examples/train.py` to experiment with different settings:
+   - `hidden_size`: Size of the hidden layer
+   - `batch_size`: Number of samples per batch
+   - `num_epochs`: Number of training epochs
+   - `learning_rate`: Learning rate for the optimizer
+   - `rho`: Desired sparsity parameter
+   - `beta`: Weight of the sparsity penalty term
+
+6. **Use the trained model**:
+   After training, you can use the model to encode new data or reconstruct inputs. Here's a basic example:
+   ```python
+   import torch
+   from sparse_autoencoder import SparseAutoencoder
+
+   # Load your trained model
+   model = SparseAutoencoder(input_size=784, hidden_size=100)
+   model.load_state_dict(torch.load('path_to_saved_model.pth'))
+
+   # Encode new data
+   new_data = torch.randn(1, 784)  # Example input
+   encoded = model.encode(new_data)
+
+   # Reconstruct input
+   reconstructed = model.decode(encoded)
    ```
 
-6. **Customization**:
-   - Modify the hyperparameters in `src/sparse_autoencoder/model.py` to experiment with different configurations.
-   - Adjust the input size and hidden size according to your specific dataset and requirements.
-
-7. **Using the trained model**:
-   After training, you can use the `encode()` and `decode()` functions to process new data with your trained sparse autoencoder.
-
-Note: Make sure to prepare your dataset and adjust the data loading process in the script according to your specific data format and location.
-
+Remember to adjust the model parameters and file paths according to your specific setup and trained model.
 
