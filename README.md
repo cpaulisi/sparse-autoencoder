@@ -1,5 +1,6 @@
 # Sparse Autoencoder
-> A repository for experimenting with use cases related to sparse autoencoders. 
+
+> A repository for experimenting with use cases related to sparse autoencoders. Adapted from https://web.stanford.edu/class/cs294a/sparseAutoencoder.pdf.
 
 ## How It Works
 
