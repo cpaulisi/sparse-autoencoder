@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "sparse-autoencoder"
+version = "0.0.1"
+description = "An implementation of a basic sparse autoencoder and fundamental use cases."
+authors = ["Cullen Paulisick <paulisickc@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+torch = "^2.5.0"
+numpy = "^2.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
